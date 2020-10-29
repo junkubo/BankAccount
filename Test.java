@@ -11,8 +11,8 @@ class Test {
       System.out.println(jun.password);
       System.out.println(jun.toString());
       BankAccount samuel = new BankAccount(9876, "terces");
-      toTransfer(samuel, 100, "secret");
-      System.out.println(jun.balance);
-      System.out.println(samuel.balance);
+      jun.transferTo(samuel, 100, "newsecret");
+      System.out.println(jun.getBalance());
+      System.out.println(samuel.getBalance());
   }
 }

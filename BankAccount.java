@@ -40,11 +40,13 @@ class BankAccount {
     return pwd == password;
   }
   public boolean transferTo(BankAccount other, double amount, String pwd) {
-    if (pwd == password) {
-      if (amount >= balance) {
+    if (authenticate(pwd)) {
+      if (amount <= balance) {
         balance -= amount;
-        other.balance += amount;
+        other.deposit(amount);
+        return true;
       }
     }
+    return false;
   }
 }
