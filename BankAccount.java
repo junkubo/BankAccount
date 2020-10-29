@@ -36,4 +36,15 @@ class BankAccount {
   public String toString(){
     return accountID + "\t" + balance;
   }
+  private boolean authenticate(String pwd) {
+    return pwd == password;
+  }
+  public boolean transferTo(BankAccount other, double amount, String pwd) {
+    if (pwd == password) {
+      if (amount >= balance) {
+        balance -= amount;
+        other.balance += amount;
+      }
+    }
+  }
 }
